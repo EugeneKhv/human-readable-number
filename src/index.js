@@ -1,6 +1,9 @@
 module.exports = function toReadable (number) {
-let numArr = [["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"], ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"], ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]];
+ let numArr = [["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"], ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"], ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]];
     if (number >= 0 && number <= 99) {
+        if (+number.toString()[1] == 0){
+            return dd(number).replace(/\s+zero/gi, '');
+        }
         return dd(number);
     }
     if (number >= 99 && number <= 999) {
@@ -8,11 +11,15 @@ let numArr = [["zero", "one", "two", "three", "four", "five", "six", "seven", "e
         if (+number.toString()[2] != 0 && +number.toString()[1] != 0) {
             return dd(n) + ' hundred ' + dd(number.toString()[1] + number.toString()[2]);
         }
-        if ((+number.toString()[1] == 0)) {
+        if (+number.toString()[1] == 0 && +number.toString()[2] == 0){
+            return dd(n) + ' hundred';
+        }
+        if (+number.toString()[1] == 0) {
             return dd(n) + ' hundred ' + dd(number.toString()[2]);
         }
-        if ((+number.toString()[2] == 0)) {
-            return dd(n) + ' hundred ' + dd(number.toString()[1] + number.toString()[2]).replace(/zero/gi, '');
+
+        if (+number.toString()[2] == 0) {
+            return dd(n) + ' hundred ' + dd(number.toString()[1] + number.toString()[2]).replace(/\s+zero/gi, '');
         }
     }
     function dd(num) {
