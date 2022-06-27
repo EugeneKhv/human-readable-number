@@ -1,5 +1,5 @@
 module.exports = function toReadable (number) {
-   let numArr = [["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"], ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeeb", "eighteen", "nineteen"], ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]];
+   let numArr = [["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"], ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"], ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]];
     if (number >= 0 && number <= 99) {
         return dd(number);
     }
